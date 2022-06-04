@@ -4,7 +4,7 @@ main{
     width: 100vw;
     height: 100vh;
     background-color: aquamarine;
-    background-image: url('textura.png');
+    background-image: url('Imagens/textura.png');
 } 
 
 .telinha{
