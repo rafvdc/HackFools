@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Pizza-Elegante</title>
+    <link rel="stylesheet" type="text/css" href="config.css">
+    <link rel="stylesheet" type="text/css" href="pizza.css">
+    
+  </head>
+  <body>
+    <div class="menu">
+      <div class="m1">
+        <img src="Imagens/EleganteCerto.png">
+      </div>
+      <div class="m2">
+          <ul>
+              <a href="index.html">
+              <li>
+                  <p> Home </p>
+              </li>
+              </a>
+              <a href="ProjPizza.html">
+              <li>
+                  <p> Faça a sua pizza </p>
+              </li>
+              </a>
+          </ul>
+      </div>
+  </div>
+
+    <main> 
+      <div class="menup">
+        <h2>
+          Editor de pizza
+        </h2>
+        <h3>
+        Escolha os Toppings:
+        </h3>
+        <button onclick="apareceSome('t1')">
+          pizza de pneu 
+        </button>
+        <button onclick="apareceSome('t2')">
+          3 quilos de sexo
+        </button>
+        <button  onclick="apareceSome('t4')">
+          EACH
+        </button>
+        <button onclick="apareceSome('t3')">
+          Coração S2
+        </button>
+        <button onclick="apareceSome('t5')">
+          IME 
+        </button>
+        <button  onclick="apareceSome('t6')">
+          Romeu e Julieta
+        </button>
+        <button  onclick="apareceSome('t7')">
+          Escarola 
+        </button>
+        <button  onclick="apareceSome('t8')">
+          Ricardo
+        </button>
+        <button  onclick="apareceSome('t9')">
+          Veneno de rato 
+        </button>
+
+        <h3>
+          Clique e arraste o mouse para colocar ketchup na pizza: 
+        </h2>
+        <button onclick="limpa()">
+          limpar a pizza
+        </button>
+        <script>
+          function apareceSome(top){
+            var img = document.getElementById(top);
+            img.classList.toggle('some');
+          }
+
+          function limpa(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+
+          function telinha(){
+            alert("Sua pizza será entregue o mais rápido possível!");;
+          }
+
+          function caixa(){
+            texto = document.getElementById('txtp');
+            mengsagem = document.getElementById('msg');
+            cx = document.getElementById('caixap');
+
+            texto.innerHTML = mengsagem.value;
+            cx.classList.remove('fora');
+            const timeout = setTimeout(telinha , 3000)
+            
+          }
+        </script>
+
+      </div>
+      <div class="menup alt">
+        <h2>
+          Coloque o que escreveremos na caixa:
+        </h2>
+        <textarea id="msg"></textarea>
+        <br>
+        <button onclick="caixa()">
+          Finalizar a pizza
+        </button>
+      </div>
+
+      <div class="caixaPizza fora" id="caixap">
+        <div class="boda">
+        <h1 id="txtp"></h1>
+          <img src="Imagens/EleganteCerto.png">
+        </div>
+      </div>
+
+      <img class="topping" src="Imagens/Pizza.png">
+      <img class="topping some" id="t1" src="Imagens/Pneu.png">
+      <img class="topping some" id="t2" src="Imagens/Sexo.png">
+      <img class="topping some" id="t3" src="Imagens/S2.png">
+      <img class="topping some" id="t4" src="Imagens/Pelvis.png">
+      <img class="topping some" id="t5" src="Imagens/IME.png">
+      <img class="topping some" id="t6" src="Imagens/RomaseJulia.png">
+      <img class="topping some" id="t7" src="Imagens/Folha.png">
+      <img class="topping some" id="t8" src="Imagens/rickroll-roll.gif">
+      <img class="topping some" id="t9" src="Imagens/Rato.png">
+
+      <div class="pizza" id="pizza">
+        <canvas id="canvas">
+        </canvas>
+      </div>
+      
+    </main>
+    <footer></footer>
+  </body>
+</html>
+
+<script>
+  // wait for the content of the window element
+// to load, then performs the operations.
+// This is considered best practice.
+window.addEventListener('load',()=>{
+      
+      resize(); // Resizes the canvas once the window loads
+      document.addEventListener('mousedown', startPainting);
+      document.addEventListener('mouseup', stopPainting);
+      document.addEventListener('mousemove', sketch);
+      window.addEventListener('resize', resize);
+  });
+      
+  const canvas = document.querySelector('#canvas');
+     
+  // Context for the canvas for 2 dimensional operations
+  const ctx = canvas.getContext('2d');
+      
+  // Resizes the canvas to the available size of the window.
+  function resize(){
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  }
+      
+  // Stores the initial position of the cursor
+  let coord = {x:0 , y:0}; 
+     
+  // This is the flag that we are going to use to 
+  // trigger drawing
+  let paint = false;
+      
+  // Updates the coordianates of the cursor when 
+  // an event e is triggered to the coordinates where 
+  // the said event is triggered.
+  function getPosition(event){
+    coord.x = event.clientX - canvas.offsetLeft;
+    coord.y = event.clientY - canvas.offsetTop;
+  }
+    
+  // The following functions toggle the flag to start
+  // and stop drawing
+  function startPainting(event){
+    paint = true;
+    getPosition(event);
+  }
+  function stopPainting(){
+    paint = false;
+  }
+      
+  function sketch(event){
+    if (!paint) return;
+    ctx.beginPath();
+      
+    ctx.lineWidth = 5;
+     
+    // Sets the end of the lines drawn
+    // to a round shape.
+    ctx.lineCap = 'round';
+      
+    ctx.strokeStyle = 'red';
+        
+    // The cursor to start drawing
+    // moves to this coordinate
+    ctx.moveTo(coord.x, coord.y);
+     
+    // The position of the cursor
+    // gets updated as we move the
+    // mouse around.
+    getPosition(event);
+     
+    // A line is traced from start
+    // coordinate to this coordinate
+    ctx.lineTo(coord.x , coord.y);
+      
+    // Draws the line.
+    ctx.stroke();
+  }
+</script>

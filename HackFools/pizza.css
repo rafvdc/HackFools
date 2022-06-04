@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap');
+
+main{
+    width: 100vw;
+    height: 100vh;
+    background-color: aquamarine;
+    background-image: url('Imagens/textura.png');
+} 
+
+.telinha{
+    width: 100vw;
+    height: 100vh;
+    background-color: #610c04;
+    position: absolute;
+    z-index: 5000;
+}
+
+.telinha h1{
+    font-family: 'comic neue';
+    text-align: center;
+    color: #fff;
+    margin-top:20%;
+}
+
+.tsome{
+    display: none;
+}
+
+.pizza{
+    width: 35vw;
+    height: 35vw;
+    margin: auto;
+    z-index: 1000;
+    position: absolute;
+    right:33vw;  
+    top:15vh;  
+}
+
+.caixaPizza{
+    z-index: 1001;
+    width: 38vw;
+    height: 38vw;
+    background-color: #816345;
+    box-shadow: #000 0px 00px 30px;
+    border: solid 5px #2e1f10;
+    position: absolute;
+    top: 5vw;
+    left: 30vw;
+    transition: transform 2s;
+}
+
+.caixaPizza img{
+    width: 40%;
+    margin-left:23%;
+    position: absolute;
+    bottom: 0px;
+}
+
+.fora{
+    transform: translatey(-120%);
+}
+
+.boda{
+    border:solid 5px #990f02;
+    width: 88%;
+    height: 88%;
+    margin-left: 5%;
+    margin-top:5%;  
+}
+
+.boda h2{
+    font-family: oswald;
+    color: #990f02;
+    text-align: center;
+    bottom:15px;
+    position: absolute;
+    left:35%;
+}
+
+#txtp{
+    text-align: center;
+    font-family: oswald;
+    font-size:50px;
+    color: #990f02;
+    margin-left:50px;
+    margin-right: 50px;
+    overflow-wrap: break-word;
+}
+
+.menup{
+    position: absolute;
+    left:0;
+    top:15%;
+    width: 25vw;
+    height: 80vh;
+    background-color: white;
+    border:solid 5px #610c04;
+    overflow-y: scroll;
+}
+
+.alt{
+    right: 0;
+    left: auto;
+}
+
+.menup h2{
+    text-align: center;
+    font-family: 'Comic Neue';
+    font-weight: bold;
+}
+
+.menup h3{
+    font-family: 'Comic neue';
+    font-weight: bold;
+    margin-left: 2vw;;
+    margin-bottom:0;
+    margin-right: 2vw;
+    text-align: center;
+}
+
+button{
+    background-color: #990f02;
+    border:none;
+    margin:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 3vw;
+    font-family: 'comic neue';
+    font-weight: bold;
+    border-radius: 10px;
+    color:white;
+}
+
+button:hover{
+    background-color: darkred;
+}
+
+textarea{
+    width: 80%;
+    height: 150px;
+    margin-left: 30px;
+    position: relative;
+    resize: none;
+}
+
+#canvas{
+    transform: translateX(-32%) translateY(-15%);
+    clip-path: inset(15% 30% 7% 30%);
+    z-index: 1000;
+}
+
+img.topping{
+    position: absolute;
+    margin-left:auto;
+    margin-right: auto;
+    height: 40vw;
+    width: auto;
+    right:21vw;  
+    top:12vh;  
+    clip-path: inset(0 12% 0 13%); 
+    pointer-events: none;
+}
+
+img.some{
+    display: none;
+}
+
+#t1{
+    z-index: 10;
+}
+
+#t2{
+    z-index: 12;
+}
+#t3{
+    z-index: 100;
+}
+#t4{
+    z-index: 15;
+}
+#t5{
+    z-index: 11;
+    opacity: 0.7;
+}
+#t6{
+    z-index: 12;
+}
+#t7{
+    z-index: 100;
+}
+#t8{
+    z-index: 11;
+    right:38vw;
+    top:14vw;
+    height: 23vw;
+}
+#t9{
+    z-index: 20;
+}
+
+
+
+html{
+    overflow-y: hidden;
+}
